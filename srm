@@ -1,0 +1,11 @@
+#!/bin/bash
+name=$(who | awk '{ print $1 }')
+path=/home/$name/.garbage_collector/
+if [ ! -d $path ]
+then
+mkdir $path
+fi
+cp $@ -rt $path
+rm -R $@
+
+
